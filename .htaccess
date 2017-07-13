@@ -1,0 +1,16 @@
+<FILES .htaccess>
+order allow,deny 
+deny from all
+</FILES>
+
+Options -MultiViews
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^([^\.]+)$ $1.php [NC,L]
+
+ErrorDocument 400 /page_not_found.php
+ErrorDocument 401 /page_not_found.php
+ErrorDocument 403 /page_not_found.php
+ErrorDocument 404 /404.php
+ErrorDocument 500 /page_not_found.php
